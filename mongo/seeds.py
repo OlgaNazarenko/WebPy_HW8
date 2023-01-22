@@ -10,7 +10,7 @@ def open_authors_file():
     with open('files/authors.json', 'r') as file:
         authors = json.load(file)
 
-        authors = Authors.objects()
+        # authors = Authors.objects()
 
         for a in authors:
             author = Authors(
@@ -28,7 +28,7 @@ def open_quotes_file():
     with open('files/quotes.json', 'r') as file:
         quotes = json.load(file)
 
-        quotes = Quotes.objects()
+        # quotes = Quotes.objects()
         for q in quotes:
             quote = Quotes(
                 tags = q['tags'],

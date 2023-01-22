@@ -13,7 +13,7 @@ def main():
         query_field = query.strip().split(':')
 
         if query_field[0] == "name":
-            result = []
+            result: list = []
             for author in authors:
                 if query_field[1].strip() in author.fullname:
                     result.append(author.fullname)
