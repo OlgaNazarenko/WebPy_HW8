@@ -36,10 +36,11 @@ def main():
     for contact in contacts:
         message = ' '.join(sys.argv[1:]) or "info: Best luck in the Year of The Rabbit!"
 
-        channel.basic_publish(exchange = '',
-                              routing_key = 'email-out',
-                              body = f'{contact.id}'.encode()
-                              )
+        channel.basic_publish(
+            exchange = '',
+            routing_key = 'email-out',
+            body = f'{contact.id}'.encode()
+        )
         contact.update(status=True)
         print(f" [x] Sent email to ObjectID:{contact.id} : {message}")
 

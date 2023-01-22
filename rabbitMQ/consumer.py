@@ -18,7 +18,6 @@ def main():
     print(' [*] Waiting for messages. To exit press CTRL+C')
 
     def callback(ch, method, properties, body):
-
         nonlocal messages_received
         if messages_received >= messages_limit:
             ch.stop_consuming()
@@ -27,6 +26,7 @@ def main():
         message = json.dumps(body.decode())
         print(f" [x] Received email: {message}")
         ch.basic_ack(delivery_tag=method.delivery_tag)
+
         messages_received += 1
 
     channel.basic_qos(prefetch_count=1)
