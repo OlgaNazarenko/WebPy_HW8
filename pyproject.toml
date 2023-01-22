@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "webpy-hw8"
+version = "0.1.0"
+description = ""
+authors = ["olganazarenko <113229061+olganazarenko@users.noreply.github.com>"]
+readme = "README.md"
+packages = [{include = "webpy_hw8"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+mongoengine = "^0.25.0"
+pymongo = {extras = ["srv tls"], version = "^4.3.3"}
+redis-lru = "^0.1.2"
+pika = "^1.3.1"
+faker = "^16.6.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
