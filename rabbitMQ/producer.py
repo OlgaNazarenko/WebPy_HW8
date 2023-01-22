@@ -32,7 +32,7 @@ def main():
 
     contacts = Contacts.objects()
     for contact in contacts:
-        message = ' '.join(sys.argv[1:]) or "info: Greetings with Rabbit Year!"
+        message = ' '.join(sys.argv[1:]) or "info: Best luck in the Year of The Rabbit!"
 
         channel.basic_publish(exchange = '',
                               routing_key = 'email-out',
