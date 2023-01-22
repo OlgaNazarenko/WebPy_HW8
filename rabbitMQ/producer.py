@@ -28,7 +28,7 @@ def main():
 
     channel.exchange_declare(exchange='email', exchange_type='direct')
 
-    print(f"{channel.queue_declare(queue='email-out', durable=True)}")
+    channel.queue_declare(queue='email-out', durable=True)
     channel.queue_bind(exchange='email', queue='email-out')
 
     contacts = Contacts.objects().limit(8)
