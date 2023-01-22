@@ -27,10 +27,12 @@ def main():
     channel = connection.channel()
 
     channel.exchange_declare(exchange='email', exchange_type='direct')
-    channel.queue_declare(queue='email-out', durable=True)
+
+    print(f"{channel.queue_declare(queue='email-out', durable=True)}")
     channel.queue_bind(exchange='email', queue='email-out')
 
-    contacts = Contacts.objects()
+    contacts = Contacts.objects().limit(8)
+
     for contact in contacts:
         message = ' '.join(sys.argv[1:]) or "info: Best luck in the Year of The Rabbit!"
 
