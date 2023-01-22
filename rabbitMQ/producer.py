@@ -36,10 +36,6 @@ def main():
 
         channel.basic_publish(exchange = '',
                               routing_key = 'email-out',
-                              properties = pika.BasicProperties(
-                                  content_type = 'text/plain',
-                                  headers = {'Subject': 'Greetings'},
-                                  delivery_mode = pika.spec.PERSISTENT_DELIVERY_MODE),
                               body = f'{contact.id}'.encode()
                               )
         contact.update(status=True)
