@@ -2,7 +2,7 @@ from mongoengine import connect
 import configparser
 
 config = configparser.ConfigParser()
-config.read('config.ini')
+config.read('src/config.ini')  # to read the config file
 
 m_user = config.get('DB', 'user')
 m_pass = config.get('DB', 'pass')

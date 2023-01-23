@@ -1,8 +1,8 @@
-from mongoengine import EmbeddedDocument, Document
+from mongoengine import Document
 from mongoengine.fields import ListField, StringField, ReferenceField
 
 
-class Authors(EmbeddedDocument):
+class Authors(Document):
     fullname = StringField(max_length=50)
     born_date = StringField(max_length=50)
     born_location = StringField(max_length=100)

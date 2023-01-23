@@ -7,7 +7,7 @@ from models import Authors, Quotes
 def open_authors_file():
     Authors.drop_collection()
 
-    with open('files/authors.json', 'r') as file:
+    with open('../files/authors.json', 'r') as file:
         authors = json.load(file)
 
         # authors = Authors.objects()
@@ -25,7 +25,7 @@ def open_authors_file():
 def open_quotes_file():
     Quotes.drop_collection()
 
-    with open('files/quotes.json', 'r') as file:
+    with open('../files/quotes.json' , 'r') as file:
         quotes = json.load(file)
 
         # quotes = Quotes.objects()

@@ -1,0 +1,17 @@
+-- A DBRef is a way to reference documents in MongoDB, it consists of
+-- a collection name, an ObjectId, and an optional database name.
+-- This error message is raised when mongoengine is trying to dereference
+-- a document that does not exist in the referenced collection.
+
+# for section in config.sections():  # to get the list of sections in config file
+#     print('[{}]'.format(section))
+#     for key, value in config.items(section):
+#         print('{} = {}'.format(key, value))  # to print in key-value pair
+
+
+-- mongoengine.errors.DoesNotExist: Trying to dereference unknown document DBRef('authors', 'Albert Einstein')
+
+#Double-check that the quote.author field is referencing the 'authors' collection and not any other collection or type.
+#Check that the quote.author field is referencing an existing document in the 'authors' collection, the ObjectId of the reference should match the ObjectId of a document in the 'authors' collection.
+
+-- exit issue - had to shift he command is "exit" before you split the query, this way you can exit the program immediately.

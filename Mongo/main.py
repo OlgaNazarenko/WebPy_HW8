@@ -1,23 +1,29 @@
-from Mongo.models import Quotes, Authors
-import connect
+import sys
+
+from src.models import Authors, Quotes
+from src import connect
 
 quotes = Quotes.objects()
 authors = Authors.objects
 
 
-def main() :
-    while True :
-        query = input('Command(either: tag, tags, name, or exit): value>>>')
+def main():
+    while True:
+        query = input('Command(either tag, tags, name, or exit): value>>>')
+
+        if query.strip() == "exit":
+            print("Goodbye")
+            sys.exit()
+
         command, value = query.strip().split(':')
         value = value.strip()
 
-        if command == "name" :
-            result = [author.fullname for author in authors if value in author.fullname]
-            for res in result:
-                print(res)
-                if value in res :
-                    quotes_with_name = [quote.quote for quote in quotes if value in quote.fullname]
-                    print(f'Quotes with name "{value}": \n {quotes_with_name}')
+        if command == "name":
+            authors_with_name = [author.fullname for author in authors if value in author.fullname]
+
+            for author in authors_with_name:
+                quotes_with_name = Quotes.objects(author__in = authors)
+                print(f' quotes with name "{value}": \n {[quote.quote for quote in quotes_with_name]}')
 
         elif command == "tag":
             quotes_with_tag = [quote.quote for quote in quotes if value in quote.tags]
@@ -27,10 +33,6 @@ def main() :
             tags = value.split(',')
             quotes_with_tags = [quote.quote for quote in quotes if any(tag in quote.tags for tag in tags)]
             print(f'Quotes with tags "{value}": \n {quotes_with_tags}')
-
-        elif command == "exit":
-            print('Good bye')
-            break
 
 
 if __name__ == "__main__":

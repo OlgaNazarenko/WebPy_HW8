@@ -8,11 +8,11 @@ packages = [{include = "webpy_hw8"}]
 
 [tool.poetry.dependencies]
 python = "^3.10"
-mongoengine = "^0.25.0"
-pymongo = {extras = ["srv tls"], version = "^4.3.3"}
 redis-lru = "^0.1.2"
 pika = "^1.3.1"
 faker = "^16.6.0"
+pymongo = {extras = ["srv tls"], version = "^4.3.3"}
+mongoengine = "^0.26.0"
 
 
 [build-system]

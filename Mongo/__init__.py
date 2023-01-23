@@ -1,1 +1,1 @@
-from models import Authors, Quotes
+from Mongo.src.models import Authors, Quotes
